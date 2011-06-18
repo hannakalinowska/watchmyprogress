@@ -4,7 +4,9 @@ gem 'rails', '3.0.7'
 
 gem 'mysql2', '0.2.7'
 gem 'haml'
+gem 'sass'
 gem 'devise'
+gem 'jammit'
 
 group :test do
   gem 'ruby-debug19'

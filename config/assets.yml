@@ -1,0 +1,10 @@
+embed_assets: on
+
+javascripts:
+  common:
+    - public/javascripts/application.js
+
+stylesheets:
+  common:
+    - public/stylesheets/application.css
+    - public/stylesheets/projects.css
