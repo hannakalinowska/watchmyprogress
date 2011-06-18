@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe 'Project Management' do
   before do
-    login_as(Factory(:user))
+    @user = Factory(:user)
+    login_as(@user)
     visit root_path
   end
 
@@ -17,7 +18,20 @@ describe 'Project Management' do
     page.should have_content('Project successfully created')
     page.should have_content('100 test cake!')
   end
-  it 'views an existing project'
-  it 'edits an existing project'
+
+  it 'views an existing project' do
+    Factory(:project, :name => '100 test cake', :user => @user)
+    visit projects_path
+    click_link '100 test cake'
+    page.should have_content('100 test cake')
+  end
+
+  it 'edits an existing project' do
+    Factory(:project, :name => '100 test cake', :user => @user)
+    visit projects_path
+    click_link 'Edit'
+    page.should have_content('100 test cake')
+    page.should have_selector('input[value=Update]')
+  end
   it 'submits a reading to a project'
 end

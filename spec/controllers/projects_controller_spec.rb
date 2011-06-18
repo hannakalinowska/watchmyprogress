@@ -14,6 +14,14 @@ describe ProjectsController do
     end
   end
 
+  describe '#show' do
+    it "renders" do
+      @user.stub_chain(:projects, :find).and_return(mock_model(Project))
+      get :show
+      response.should be_success
+    end
+  end
+
   describe '#new' do
     it "renders" do
       get :new
