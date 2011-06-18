@@ -23,15 +23,19 @@ describe ProjectsController do
 
   describe '#create' do
     it "creates a project and redirects" do
-      lambda {
-        post :create, :project => {
-          :name => '100 test cake',
-          :description => 'Wheres my cake',
-          :start => '0',
-          :target => '100'
-        }
-      }.should change(Project, :count).by(1)
+      mock_project = mock_model(Project)
+      mock_project.should_receive(:save).and_return(true)
+      @user.stub_chain(:projects, :build).and_return(mock_project)
+
+      post :create, :project => {
+        :name => '100 test cake',
+        :description => 'Wheres my cake',
+        :start => '0',
+        :target => '100'
+      }
       response.should redirect_to(projects_path)
+    end
+  end
 
     end
   end
