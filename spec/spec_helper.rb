@@ -31,3 +31,7 @@ end
 def mock_current_user(attributes = {})
   mock_model(User)
 end
+
+def login_as(user)
+  # TODO
+end

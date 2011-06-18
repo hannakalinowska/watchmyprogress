@@ -20,5 +20,13 @@
       %h1
         Dashboard
 
+    %div.flash_messages
+      - if flash[:notice]
+        %div.notice
+          = flash[:notice]
+      - if flash[:error]
+        %div.error
+          = flash[:error]
+
     %div#content
       = yield

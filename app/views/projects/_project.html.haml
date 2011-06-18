@@ -1,0 +1,21 @@
+%h3
+  = link_to project.name, project_path(project)
+
+%div.description
+  = project.description
+
+%ul
+  %li
+    Progress: 23% complete
+  %li
+    Last update: 2 days ago
+  %li
+    Started: #{time_ago_in_words(project.created_at)}
+
+%div.progress_bar
+
+%div.edit_project
+  = link_to 'Edit', edit_project_path(project)
+
+%div.add_update
+  = link_to 'Add update', '#'

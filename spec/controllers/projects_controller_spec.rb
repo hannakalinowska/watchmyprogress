@@ -13,4 +13,26 @@ describe ProjectsController do
       response.should be_success
     end
   end
+
+  describe '#new' do
+    it "renders" do
+      get :new
+      response.should be_success
+    end
+  end
+
+  describe '#create' do
+    it "creates a project and redirects" do
+      lambda {
+        post :create, :project => {
+          :name => '100 test cake',
+          :description => 'Wheres my cake',
+          :start => '0',
+          :target => '100'
+        }
+      }.should change(Project, :count).by(1)
+      response.should redirect_to(projects_path)
+
+    end
+  end
 end
