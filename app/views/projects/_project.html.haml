@@ -4,7 +4,7 @@
 
   %div.outer_container
     %div.progress_bar
-      %div.progress_bar_inner{:style => 'height: 23%'}
+      %div.progress_bar_inner{:style => "height: #{project.progress}%"}
         &nbsp;
 
     %div.inner_container
@@ -13,11 +13,12 @@
 
       %ul
         %li
-          Progress: 23% complete
+          Progress: #{project.progress}% complete
+        - if project.updates.any?
+          %li
+            Last update: #{time_ago_in_words(project.last_update.created_at)} ago
         %li
-          Last update: 2 days ago
-        %li
-          Started: #{time_ago_in_words(project.created_at)} ago
+          Created: #{time_ago_in_words(project.created_at)} ago
 
 
       %div.bottom
