@@ -1,1 +1,39 @@
-= render @project
+%h1
+  = @project.name
+
+%div.left
+  %div.summary
+    Going from
+    %span.starts_at= @project.starts_at
+    to
+    %span.ends_at= @project.ends_at
+
+  %div.description
+    = @project.description
+
+  %ul
+    %li
+      Progress: #{percentage(@project.progress)} complete
+    - if @project.updates.any?
+      %li
+        Last update: #{time_ago_in_words(@project.last_update.created_at)} ago
+      %li
+        Created: #{time_ago_in_words(@project.created_at)} ago
+
+  = link_to 'Add update', new_project_update_path(@project)
+
+  %h3
+    Previous updates
+  %table
+    - @project.updates.each do |update|
+      %tr
+        %td
+          = update.created_at.to_s(:short)
+        %td
+          = update.value
+
+  [graph]
+
+%div.right
+  %div.progress_bar
+    %div.progress_bar_inner{:style => "height: #{@project.progress}%"}
