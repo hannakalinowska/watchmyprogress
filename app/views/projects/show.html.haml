@@ -20,7 +20,8 @@
       %li
         Created: #{time_ago_in_words(@project.created_at)} ago
 
-  = link_to 'Add update', new_project_update_path(@project)
+  %div.button{:style => 'float: none'}
+    = link_to 'Add update', new_project_update_path(@project)
 
   %h3
     Previous updates
