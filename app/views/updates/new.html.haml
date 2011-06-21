@@ -1,0 +1,8 @@
+%h2
+  = @project.name
+
+= form_for [@project, @update] do |f|
+  = f.label :value
+  = f.text_field :value
+
+  = f.submit 'Add'

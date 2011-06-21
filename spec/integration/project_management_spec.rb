@@ -33,5 +33,14 @@ describe 'Project Management' do
     page.should have_content('100 test cake')
     page.should have_selector('input[value=Update]')
   end
-  it 'submits a reading to a project'
+
+  it 'submits a reading to a project' do
+    Factory(:project, :name => '100 test cake', :user => @user)
+    visit projects_path
+    click_link 'Add update'
+    fill_in 'Value', :with => '20'
+    click_button 'Add'
+    page.should have_content('Update added')
+    page.should have_content('Last update: less than a minute ago')
+  end
 end
