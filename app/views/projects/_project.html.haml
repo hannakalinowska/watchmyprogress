@@ -8,12 +8,17 @@
         &nbsp;
 
     %div.inner_container
+      %div.summary
+        Going from
+        %span.starts_at= project.starts_at
+        to
+        %span.ends_at= project.ends_at
       %div.description
         = project.description
 
       %ul
         %li
-          Progress: #{project.progress}% complete
+          Progress: #{percentage(project.progress)} complete
         - if project.updates.any?
           %li
             Last update: #{time_ago_in_words(project.last_update.created_at)} ago
