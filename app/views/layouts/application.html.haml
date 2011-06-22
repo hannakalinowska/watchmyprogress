@@ -15,10 +15,7 @@
         = link_to 'Home', root_path
         = link_to 'My Account', '#'
         = link_to 'Logout', '#'
-      %div.new_project
-        = link_to 'New Project', new_project_path
-      %h1
-        Dashboard
+      %div.clear
 
     %div.flash_messages
       - if flash[:notice]

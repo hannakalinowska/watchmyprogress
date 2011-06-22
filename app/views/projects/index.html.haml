@@ -1,1 +1,8 @@
-= render :partial => 'project', :collection => @projects
+%div.new_project
+  = link_to 'New Project', new_project_path
+%h1
+  Dashboard
+
+%div.content
+  = render :partial => 'project', :collection => @projects
+  %div.clear
