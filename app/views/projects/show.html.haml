@@ -25,16 +25,32 @@
 
   %h3
     Previous updates
-  %table
+  %table.updates
     - @project.updates.each do |update|
       %tr
         %td
           = update.created_at.to_s(:short)
+          %span.time= update.created_at.to_i * 1000
         %td
           = update.value
+          %span.value= update.value
 
-  [graph]
+  %div#graph{:style =>'width: 500px; height: 300px'}
 
 %div.right
   %div.progress_bar
     %div.progress_bar_inner{:style => "height: #{@project.progress}%"}
+
+%div{:style => 'clear: both'}
+
+:javascript
+  var graph_data = [];
+  $('table.updates tr').each(function(index, tr) {
+    var time = $(tr).find('span.time').text();
+    var value = $(tr).find('span.value').text();
+    graph_data.push([time, value]);
+  });
+
+  var options = {xaxis: {mode: 'time'}};
+
+  $.plot($('#graph'), [graph_data], options);
