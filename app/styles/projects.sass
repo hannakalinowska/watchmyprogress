@@ -20,20 +20,6 @@
       padding: 1em 0
   .outer_container
     height: 300px
-  .progress_bar
-    float: right
-    border: 2px solid grey
-    height: 100%
-    width: 15px
-    position: relative
-    .progress_bar_inner
-      background: grey
-      background: -webkit-gradient(linear, left top, left bottom, from(grey), to(lightgrey))
-      background: -moz-linear-gradient(top, grey, lightgrey)
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 100%
   .inner_container
     margin-right: 50px
     height: 100%
@@ -59,6 +45,22 @@
       width: 100%
     .edit_project
       float: left
+
+.progress_bar
+  float: right
+  border: 2px solid grey
+  height: 100%
+  width: 15px
+  position: relative
+  .progress_bar_inner
+    background: grey
+    background: -webkit-gradient(linear, left top, left bottom, from(grey), to(lightgrey))
+    background: -moz-linear-gradient(top, grey, lightgrey)
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+
 .button
   float: right
   a
