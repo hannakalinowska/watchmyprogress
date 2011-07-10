@@ -3,6 +3,9 @@ embed_assets: on
 javascripts:
   common:
     - public/javascripts/application.js
+  lib:
+    - public/javascripts/lib/jquery.js
+    - public/javascripts/lib/jquery.flot.js
 
 stylesheets:
   common:
