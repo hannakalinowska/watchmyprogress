@@ -6,6 +6,7 @@ javascripts:
   lib:
     - public/javascripts/lib/jquery.js
     - public/javascripts/lib/jquery.flot.js
+    - public/javascripts/lib/jquery-ui.js
 
 stylesheets:
   common:
