@@ -19,6 +19,7 @@
         Last update: #{time_ago_in_words(@project.last_update.created_at)} ago
       %li
         Created: #{time_ago_in_words(@project.created_at)} ago
+        %span.created_at= @project.created_at.to_i * 1000
 
   %div.button{:style => 'float: none'}
     = link_to 'Add update', new_project_update_path(@project)
@@ -45,12 +46,18 @@
 
 :javascript
   var graph_data = [];
+  var target_data = [];
+  var target_value = $('span.ends_at').text();
+  var start_time = $('span.created_at').text();
+  graph_data.push([start_time, $('span.starts_at').text()]);
+  target_data.push([start_time, target_value]);
   $('table.updates tr').each(function(index, tr) {
     var time = $(tr).find('span.time').text();
     var value = $(tr).find('span.value').text();
     graph_data.push([time, value]);
+    target_data.push([time, target_value]);
   });
 
   var options = {xaxis: {mode: 'time'}};
 
-  $.plot($('#graph'), [graph_data], options);
+  $.plot($('#graph'), [graph_data, target_data], options);
