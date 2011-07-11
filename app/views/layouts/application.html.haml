@@ -3,8 +3,9 @@
   %head
     %title
       WatchMyProgress
-    = include_javascripts :common
     = include_javascripts :lib
+    = include_javascripts :common
+    = include_stylesheets :lib
     = include_stylesheets :common
     = csrf_meta_tag
 
@@ -28,3 +29,5 @@
 
     %div#content
       = yield
+
+    %div.remote_container{:style => 'display:none'}

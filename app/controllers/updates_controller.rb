@@ -2,6 +2,8 @@ class UpdatesController < ApplicationController
   def new
     @project = current_user.projects.find(params[:project_id])
     @update = @project.updates.build
+
+    render :layout => false if request.xhr?
   end
 
   def create

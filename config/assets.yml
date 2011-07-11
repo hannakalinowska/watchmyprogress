@@ -3,6 +3,7 @@ embed_assets: on
 javascripts:
   common:
     - public/javascripts/application.js
+    - public/javascripts/project.js
   lib:
     - public/javascripts/lib/jquery.js
     - public/javascripts/lib/jquery.flot.js
@@ -12,3 +13,6 @@ stylesheets:
   common:
     - public/stylesheets/application.css
     - public/stylesheets/projects.css
+    - public/stylesheets/updates.css
+  lib:
+    - public/stylesheets/lib/jquery-ui.css
