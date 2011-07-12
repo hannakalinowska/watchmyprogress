@@ -1,7 +1,7 @@
 %h1
   = @project.name
 
-%div.left{:style => 'float: left; width: 800px'}
+%div.left
   %div.summary
     Going from
     %span.starts_at= @project.starts_at
@@ -11,7 +11,7 @@
   %div.description
     = @project.description
 
-  %ul
+  %ul.info
     %li
       Progress: #{percentage(@project.progress)} complete
     - if @project.updates.any?
@@ -42,7 +42,7 @@
   %div.progress_bar
     %div.progress_bar_inner{:style => "height: #{@project.progress}%"}
 
-%div{:style => 'clear: both'}
+%div.clear
 
 :javascript
   var graph_data = [];

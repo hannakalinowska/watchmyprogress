@@ -7,27 +7,31 @@
     = include_javascripts :common
     = include_stylesheets :lib
     = include_stylesheets :common
+    = stylesheet_link_tag '/stylesheets/lib/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag '/stylesheets/lib/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag '/stylesheets/lib/ie.css', :media => 'screen, projection'
     = csrf_meta_tag
 
   %body
-    %div#header
-      %h2
-        = link_to 'WatchMyProgress', projects_path
-      %div.menu
-        = link_to 'Home', root_path
-        = link_to 'My Account', '#'
-        = link_to 'Logout', '#'
-      %div.clear
+    %div#wrapper
+      %div#header
+        %h2
+          = link_to 'WatchMyProgress', projects_path
+        %div.menu
+          = link_to 'Home', root_path
+          = link_to 'My Account', '#'
+          = link_to 'Logout', '#'
 
-    %div.flash_messages
-      - if flash[:notice]
-        %div.notice
-          = flash[:notice]
-      - if flash[:error]
-        %div.error
-          = flash[:error]
+      %div.flash_messages
+        - if flash[:notice]
+          %div.notice
+            = flash[:notice]
+        - if flash[:error]
+          %div.error
+            = flash[:error]
 
-    %div#content
-      = yield
+      %div#content
+        = yield
 
-    %div.remote_container{:style => 'display:none'}
+      %div.remote_container{:style => 'display:none'}
