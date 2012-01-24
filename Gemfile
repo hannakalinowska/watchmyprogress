@@ -7,7 +7,6 @@ gem 'haml'
 gem 'sass'
 gem 'devise'
 gem 'jammit'
-gem 'compass'
 
 group :test do
   gem 'ruby-debug19'
