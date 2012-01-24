@@ -21,13 +21,13 @@
             %li= link_to 'My Account', '#', :class => 'span2'
             %li= link_to 'Logout', '#', :class => 'span2'
 
-      %div.flash_messages
-        - if flash[:notice]
-          %div.notice
-            = flash[:notice]
-        - if flash[:error]
-          %div.error
-            = flash[:error]
+    %div.flash_messages.container
+      - if flash[:notice]
+        %div.alert-message.success
+          = flash[:notice]
+      - if flash[:error]
+        %div.alert-message.error
+          = flash[:error]
 
     %div.container
       %div#content
