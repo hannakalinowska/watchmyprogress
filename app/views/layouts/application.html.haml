@@ -16,7 +16,8 @@
         %div.container
           %h3
             = link_to 'WatchMyProgress', projects_path
-          %ul.nav
+          %ul.nav{:style => 'text-align: center'}
+            %li= link_to 'New Project', new_project_path, :class => 'span2 btn primary'
             %li= link_to 'Home', root_path, :class => 'span2'
             %li= link_to 'My Account', '#', :class => 'span2'
             %li= link_to 'Logout', '#', :class => 'span2'
